@@ -17,14 +17,11 @@
 #include <GLFW/glfw3.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "config.h"
 #include "boid.h"
 #include "quadtree.h"
 #include "utils.h"
 #include "graphics.h"
-#define GRAPHICS_BOIDS_SIZE (10.0f)
-#define NUM_BOIDS (2000)
-
-
 
 // Error callback
 static void error_callback(int error, const char* description)
@@ -32,12 +29,12 @@ static void error_callback(int error, const char* description)
   fputs(description, stderr);
 }
 
-// Keyboar callback
-static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
-{
-  if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-    glfwSetWindowShouldClose(window, GL_TRUE);
-}
+// Keyboar callback (NOT CURRENTLY USED)
+// static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+// {
+//   if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+//     glfwSetWindowShouldClose(window, GL_TRUE);
+// }
 
 
 int main(void)
@@ -54,7 +51,7 @@ int main(void)
     exit(EXIT_FAILURE);
   }
   glfwMakeContextCurrent(window);
-  glfwSetKeyCallback(window, key_callback);
+  //glfwSetKeyCallback(window, key_callback); NOT CURRENTLY USED
 
 
   // Init random number gen
@@ -122,6 +119,7 @@ int main(void)
   for(int i = 0; i < NUM_BOIDS; i++){
     free(boidFlock[i]);
   }
+
   glfwDestroyWindow(window);
   glfwTerminate();
   exit(EXIT_SUCCESS);

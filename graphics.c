@@ -1,12 +1,11 @@
 #include <GLFW/glfw3.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "config.h"
 #include "boid.h"
 #include "quadtree.h"
 #include "utils.h"
 #include "graphics.h"
-#define GRAPHICS_BOIDS_SIZE (1.0f)
-
 
 void drawBoid(struct boid *thisBoid){
   glPointSize(1.0);

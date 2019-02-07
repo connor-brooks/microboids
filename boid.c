@@ -1,15 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <GL/gl.h>
+#include "config.h"
 #include "math.h"
 #include "boid.h"
 #include "quadtree.h"
 #include "utils.h"
 #include "graphics.h"
-#define BOID_SIGHT_AREA (0.03)
-#define BOID_MAX_SPEED (0.001)
-#define BOID_AVOID_MAGNITUDE (0.006)
-
 
 struct boid* createBoid(float x, float y){
   struct boid* temp = malloc(sizeof(struct boid));
