@@ -25,3 +25,6 @@ quadtree.o: quadtree.c
 utils.o: utils.c
 	$(CC) -c utils.c
 
+clean:
+	rm *.o
+	rm boids
